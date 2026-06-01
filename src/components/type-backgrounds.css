@@ -1,0 +1,240 @@
+#type-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    background: #0f172a;
+}
+
+.type-bg-layer {
+    position: absolute;
+    inset: 0;
+    opacity: 1;
+}
+
+.type-bg-layer.is-entering {
+    animation: typeBgFadeIn 0.5s steps(4, end) both;
+}
+
+.type-bg-layer.is-exiting {
+    animation: typeBgFadeOut 0.5s steps(4, end) both;
+}
+
+.type-bg-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    shape-rendering: crispEdges;
+}
+
+.type-bg-svg * {
+    shape-rendering: crispEdges;
+}
+
+.bg-layer {
+    transform-box: fill-box;
+}
+
+@keyframes typeBgFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes typeBgFadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes blinkSoft {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+}
+
+@keyframes blinkHard {
+    0%, 72%, 100% { opacity: 0; }
+    76%, 84% { opacity: 1; }
+}
+
+@keyframes surfaceBob {
+    from { transform: translateY(-2px); }
+    to { transform: translateY(2px); }
+}
+
+@keyframes raySway {
+    from { transform: translateX(-4px); }
+    to { transform: translateX(4px); }
+}
+
+@keyframes seaweedSway {
+    from { transform: translateX(-4px); }
+    to { transform: translateX(4px); }
+}
+
+@keyframes laprasGlide {
+    from { transform: translateX(410px); }
+    to { transform: translateX(-180px); }
+}
+
+@keyframes magikarpDart {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(-70px, -8px); }
+    100% { transform: translate(-140px, 0); }
+}
+
+@keyframes horseaBob {
+    from { transform: translateY(-5px); }
+    to { transform: translateY(5px); }
+}
+
+@keyframes bubbleRise {
+    0% { transform: translate(0, 0); opacity: 0; }
+    12% { opacity: 1; }
+    50% { transform: translate(3px, -115px); }
+    100% { transform: translate(-3px, -230px); opacity: 0; }
+}
+
+@keyframes fishSchool {
+    from { transform: translateX(220px); }
+    to { transform: translateX(-260px); }
+}
+
+@keyframes flameColumn {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-20px); opacity: 0; }
+}
+
+@keyframes lavaCycle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.72; }
+}
+
+@keyframes emberFloat {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-90px); opacity: 0; }
+}
+
+@keyframes ashFall {
+    from { transform: translateY(-20px); opacity: 0.35; }
+    to { transform: translateY(140px); opacity: 0; }
+}
+
+@keyframes orbitBox {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(24px, -14px); }
+    50% { transform: translate(48px, 0); }
+    75% { transform: translate(24px, 14px); }
+    100% { transform: translate(0, 0); }
+}
+
+@keyframes slowBob {
+    from { transform: translateY(-4px); }
+    to { transform: translateY(4px); }
+}
+
+@keyframes crawl {
+    from { transform: translateX(-35px); }
+    to { transform: translateX(70px); }
+}
+
+@keyframes leafFall {
+    from { transform: translate(-20px, -30px); opacity: 0.9; }
+    to { transform: translate(42px, 245px); opacity: 0; }
+}
+
+@keyframes rainFall {
+    from { transform: translate(0, -30px); }
+    to { transform: translate(10px, 225px); }
+}
+
+@keyframes snowFall {
+    from { transform: translate(0, -20px); opacity: 0.9; }
+    to { transform: translate(8px, 225px); opacity: 0.25; }
+}
+
+@keyframes windSweep {
+    from { transform: translateX(-160px); opacity: 0; }
+    35% { opacity: 1; }
+    to { transform: translateX(420px); opacity: 0; }
+}
+
+@keyframes mistScroll {
+    from { transform: translateX(-54px); }
+    to { transform: translateX(0); }
+}
+
+@keyframes riseFade {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-48px); opacity: 0; }
+}
+
+@keyframes dustFall {
+    from { transform: translateY(-16px); opacity: 0.28; }
+    to { transform: translateY(120px); opacity: 0; }
+}
+
+@keyframes sandBlow {
+    from { transform: translateX(-80px); opacity: 0; }
+    20% { opacity: 0.5; }
+    to { transform: translateX(140px); opacity: 0; }
+}
+
+@keyframes cloudDrift {
+    from { transform: translateX(-90px); }
+    to { transform: translateX(120px); }
+}
+
+@keyframes scanLine {
+    from { transform: translateY(-225px); }
+    to { transform: translateY(225px); }
+}
+
+@keyframes pulseScale {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.12); opacity: 0.9; }
+}
+
+.twinkle-a { animation: blinkSoft 2s steps(2, end) infinite; }
+.twinkle-b { animation: blinkSoft 2s steps(2, end) infinite 0.75s; }
+.surface-undulate { animation: surfaceBob 3s ease-in-out infinite alternate; }
+.ray-sway { animation: raySway 6s ease-in-out infinite alternate; }
+.seaweed-sway { animation: seaweedSway 4s ease-in-out infinite alternate; }
+.lapras-glide { animation: laprasGlide 20s linear infinite; }
+.magikarp-dart { animation: magikarpDart 7s ease-in-out infinite; }
+.horsea-bob { animation: horseaBob 3s ease-in-out infinite alternate; }
+.bubble-rise { animation: bubbleRise 8s linear infinite; }
+.fish-school { animation: fishSchool 16s linear infinite; }
+.flame-column { animation: flameColumn 1.5s ease-in infinite; }
+.lava-cycle { animation: lavaCycle 1.4s steps(3, end) infinite; }
+.ember-float { animation: emberFloat 4s linear infinite; }
+.ash-fall { animation: ashFall 6s linear infinite; }
+.charizard-orbit, .orb-orbit-rich, .dragon-circle { animation: orbitBox 10s linear infinite; }
+.magmar-bob, .sceptile-idle, .glalie-float, .silhouette-bob, .fighter-idle, .swalot-bob, .eevee-bob { animation: slowBob 3s ease-in-out infinite alternate; }
+.silhouette-bob-slow, .fighter-idle-slow { animation: slowBob 4.6s ease-in-out infinite alternate; }
+.slugma-crawl, .sandshrew-scurry, .zigzagoon-scurries { animation: crawl 12s linear infinite alternate; }
+.flygon-shift { animation: seaweedSway 5s ease-in-out infinite alternate; }
+.wurmple-inch { animation: crawl 8s steps(4, end) infinite alternate; }
+.firefly-blink { animation: blinkHard 2s steps(1, end) infinite; }
+.leaf-drift, .petal-drift { animation: leafFall 12s linear infinite; }
+.dapple-pulse, .ripple-pulse, .dust-puff { animation: pulseScale 3s steps(3, end) infinite; transform-box: fill-box; transform-origin: center; }
+.bolt-flash-rich { animation: blinkHard 5s steps(2, end) infinite; opacity: 0; }
+.electrode-bounce { animation: slowBob 1.8s ease-in-out infinite alternate; }
+.jolteon-run { animation: crawl 5s linear infinite; }
+.rain-fall { animation: rainFall 0.8s linear infinite; }
+.aurora-drift { animation: cloudDrift 9s linear infinite alternate; }
+.sealeo-slide { animation: crawl 8s linear infinite alternate; }
+.snowfall { animation: snowFall 7s linear infinite; }
+.wind-streak { animation: windSweep 4s linear infinite; }
+.ruin-float { animation: slowBob 6s ease-in-out infinite alternate; }
+.ghost-drift, .ghost-drift-slow { animation: slowBob 6s ease-in-out infinite alternate; }
+.mist-scroll, .sand-scroll { animation: mistScroll 10s linear infinite; }
+.wisp-rise, .toxic-rise, .energy-rise, .spark-fall { animation: riseFade 5s linear infinite; }
+.crackle, .impact-line, .fairy-spark { animation: blinkHard 1.8s steps(2, end) infinite; }
+.onix-glide { animation: seaweedSway 5s ease-in-out infinite alternate; }
+.dust-fall { animation: dustFall 8s linear infinite; }
+.sand-blow { animation: sandBlow 3s linear infinite; }
+.butterfree-flutter, .beautifly-flutter, .pelipper-glide, .swellow-glide, .togekiss-glide { animation: slowBob 2.8s ease-in-out infinite alternate; }
+.aggron-step { animation: slowBob 3.8s steps(3, end) infinite alternate; }
+.scan-line { animation: scanLine 6s linear infinite; }
+.cloud-drift { animation: cloudDrift 12s linear infinite; }
+.window-blink { animation: blinkSoft 4s steps(2, end) infinite; }
