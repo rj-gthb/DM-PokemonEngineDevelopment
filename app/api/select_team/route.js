@@ -51,14 +51,31 @@ export async function POST(request) {
       cache: 'no-store',
     });
 
-    const payload = await response.json();
-    if (!response.ok) {
-      throw new Error(payload?.error || `Backend returned status ${response.status}`);
+    let payload = null;
+    try {
+      payload = await response.json();
+    } catch (err) {
+      // Backend returned non-JSON or empty response
+      payload = null;
     }
 
-    return NextResponse.json(payload, { status: response.status });
+    if (!response.ok) {
+      const fallbackTeam = localSelectTeam(candidatePool, gymTeam, modelStrategy);
+      console.error('Backend select_team failed', response.status, payload?.error || payload);
+      return NextResponse.json(
+        {
+          team: fallbackTeam,
+          warning: `Backend request failed: ${payload?.error || 'status ' + response.status}. Falling back to local selection.`,
+        },
+        { status: 200 }
+      );
+    }
+
+    // Success: return backend payload (normalize to 200)
+    return NextResponse.json(payload || { team: localSelectTeam(candidatePool, gymTeam, modelStrategy) });
   } catch (error) {
     const fallbackTeam = localSelectTeam(candidatePool, gymTeam, modelStrategy);
+    console.error('Backend select_team fetch error', error?.message || error);
     return NextResponse.json(
       {
         team: fallbackTeam,
